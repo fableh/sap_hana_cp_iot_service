@@ -1,0 +1,47 @@
+PROCEDURE "FABIAN"."development.iot::sap_cp_iot_sensordata_IRtemp_proc" ( 
+IN row "development.iot::sap_cp_iot_sensordata.tt_detailsIRTemp",
+OUT error "development.iot::sap_cp_iot_sensordata.tt_error" )
+
+LANGUAGE SQLSCRIPT
+SQL SECURITY INVOKER
+DEFAULT SCHEMA FABIAN
+AS
+BEGIN
+ /*****************************
+	Write your procedure logic
+ *****************************/
+
+ declare lv_measunit string;
+ declare lv_meastimestamp string;
+  declare lv_temperature string;
+ declare lv_measuid string;
+ declare lv_nodeid string;
+ declare lv_macaddress string;
+  declare lv_profileid string;
+ declare lv_sensorid string;
+ 
+ 
+ 
+
+ 
+ select MEASUNIT, MEASTIMESTAMP, TEMPERATURE, MEASUID, NODEID, MACADDRESS, PROFILEID, SENSORID  into lv_measunit, lv_meastimestamp, lv_temperature, lv_measuid, lv_nodeid, lv_macaddress , lv_profileid, lv_sensorid  from :row;
+
+ if :lv_temperature = ' ' then
+    error = select 400 as http_status_code,
+	    'invalid date' as error_message,
+		    'Invalid response from sensor' as detail from dummy;
+ else
+insert into "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataIRTemp" values 
+("FABIAN"."development.iot::sap_cp_iot_sensordata_IRTemp_id_seq".NEXTVAL, now(),
+lv_measunit,
+CAST(lv_meastimestamp AS bigint),
+CAST(lv_temperature AS double),
+lv_measuid,
+CAST(lv_nodeid AS INTEGER ),
+lv_macaddress,
+CAST(lv_profileid AS INTEGER),
+CAST (lv_sensorid AS INTEGER));
+
+end if;
+
+END;

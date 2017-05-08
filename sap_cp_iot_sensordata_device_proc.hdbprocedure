@@ -1,0 +1,47 @@
+PROCEDURE "FABIAN"."development.iot::sap_cp_iot_sensordata_device_proc" ( 
+  IN row "development.iot::sap_cp_iot_sensordata.tt_detailsDevice",
+OUT error "development.iot::sap_cp_iot_sensordata.tt_error" )
+
+LANGUAGE SQLSCRIPT
+SQL SECURITY INVOKER
+DEFAULT SCHEMA FABIAN
+AS
+BEGIN
+ /*****************************
+	Write your procedure logic
+ *****************************/
+
+ declare lv_phyaddr string;
+  declare lv_longitude string;
+ declare lv_latitude string;
+ declare lv_altitude string;
+ declare lv_deviceid string;
+  declare lv_devicename string;
+  declare lv_phynodeid string;
+  declare lv_netid string;
+  
+ 
+ 
+ select PHYADDR, LONGITUDE, LATITUDE, ALTITUDE, DEVICEID, DEVICENAME, PHYNODEID, NETID into lv_phyaddr, lv_longitude, lv_latitude, lv_altitude, lv_deviceid, lv_devicename, lv_phynodeid, lv_netid    from :row;
+
+
+ if :lv_phyaddr = ' ' then
+    error = select 400 as http_status_code,
+	    'invalid date' as error_message,
+		    'Invalid response from sensor' as detail from dummy;
+ else
+insert into "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataDevice" values 
+("FABIAN"."development.iot::sap_cp_iot_sensordata_device_id_seq".NEXTVAL, now(),
+lv_phyaddr,
+CAST(lv_longitude AS double),
+CAST(lv_latitude AS double),
+CAST(lv_altitude AS double),
+CAST(lv_deviceid AS Integer),
+lv_devicename,
+CAST(lv_phynodeid AS Integer),
+ CAST(   lv_netid AS Integer)
+);
+
+end if;
+
+END;

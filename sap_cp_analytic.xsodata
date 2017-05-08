@@ -1,0 +1,71 @@
+service namespace "development.iot"
+{ 
+
+"_SYS_BIC"."development.iot.dbviews/CV_TEMP_WITH_DEVICEINFO"
+as "TEMPERATURE_DEVICEINFO" 
+keys generate local "ID" aggregates always (AVG of "TEMPERATURE");
+
+"_SYS_BIC"."development.iot.dbviews/CV_HUM_TEMP_DEVICEINFO"
+as "HUMIDITY_TEMPERATURE_DEVICEINFO" 
+keys generate local "ID" aggregates always (AVG of "TEMPERATURE", AVG of "HUMIDITY");
+
+"_SYS_BIC"."development.iot.dbviews/CV_AIR_TEMP"
+as "AIR_TEMPERATURE" 
+keys generate local "ID" aggregates always (AVG of "TEMPERATURE");
+
+"_SYS_BIC"."development.iot.dbviews/CV_PRESSURE"
+as "PRESSURE" 
+keys generate local "ID" aggregates always (AVG of "PRESSURE");
+
+"_SYS_BIC"."development.iot.dbviews/CV_LUX"
+as "LUX" 
+keys generate local "ID" aggregates always (AVG of "LUX");
+
+"_SYS_BIC"."development.iot.dbviews/CV_ACC_X"
+as "ACC_X" 
+keys generate local "ID" aggregates always (AVG of "ACCELERATIONX");
+
+"_SYS_BIC"."development.iot.dbviews/CV_ACC_Y"
+as "ACC_Y" 
+keys generate local "ID" aggregates always (AVG of "ACCELERATIONY");
+
+"_SYS_BIC"."development.iot.dbviews/CV_ACC_Z"
+as "ACC_Z" 
+keys generate local "ID" aggregates always (AVG of "ACCELERATIONZ");
+
+"_SYS_BIC"."development.iot.dbviews/CV_MAG_X"
+as "MAG_X" 
+keys generate local "ID" aggregates always (AVG of "MAGNETOMETERX");
+
+"_SYS_BIC"."development.iot.dbviews/CV_MAG_Y"
+as "MAG_Y" 
+keys generate local "ID" aggregates always (AVG of "MAGNETOMETERY");
+
+"_SYS_BIC"."development.iot.dbviews/CV_MAG_Z"
+as "MAG_Z" 
+keys generate local "ID" aggregates always (AVG of "MAGNETOMETERZ");
+
+
+"_SYS_BIC"."development.iot.dbviews/CV_GYRO_X"
+as "GYRO_X" 
+keys generate local "ID" aggregates always (AVG of "GYROSCOPEX");
+
+
+"_SYS_BIC"."development.iot.dbviews/CV_GYRO_Y"
+as "GYRO_Y" 
+keys generate local "ID" aggregates always (AVG of "GYROSCOPEY");
+
+
+"_SYS_BIC"."development.iot.dbviews/CV_GYRO_Z"
+as "GYRO_Z" 
+keys generate local "ID" aggregates always (AVG of "GYROSCOPEZ");
+
+"_SYS_BIC"."development.iot.dbviews/CV_LOCATION"
+as "SENSOR_LOCATION" 
+keys generate local "ID" aggregates always (AVG of "DeviceID_LD");
+
+}
+
+annotations {
+ enable OData4SAP;
+             }

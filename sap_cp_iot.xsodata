@@ -1,0 +1,6 @@
+service namespace "development.iot"
+{ 
+"FABIAN"."development.iot::sap_cp_iot_data.iotData" 
+as "HISTORY"; "FABIAN"."development.iot::sap_cp_iot_data.iotData" 
+as "SENSORDATA" create using "development.iot::sap_cp_iot_procedure";
+}

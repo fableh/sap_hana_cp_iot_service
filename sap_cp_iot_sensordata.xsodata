@@ -1,0 +1,64 @@
+service namespace "development.iot"
+{ 
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataTemp" 
+as "TEMPERATURE_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataTemp" 
+as "TEMPERATURE" create using "development.iot::sap_cp_iot_sensordata_temp_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataHum" 
+as "HUMIDITY_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataHum" 
+as "HUMIDITY" create using "development.iot::sap_cp_iot_sensordata_hum_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataDevice" 
+as "DEVICEDATA_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataDevice" 
+as "DEVICEDATA" create using "development.iot::sap_cp_iot_sensordata_device_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataIRTemp" 
+as "IR_TEMP_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataIRTemp" 
+as "IR_TEMPDATA" create using "development.iot::sap_cp_iot_sensordata_IRtemp_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataLux" 
+as "LUX_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataLux" 
+as "LUXDATA" create using "development.iot::sap_cp_iot_sensordata_lux_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataPressure" 
+as "PRESSURE_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataPressure" 
+as "PRESSURE" create using "development.iot::sap_cp_iot_sensordata_pressure_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataAccelerationX" 
+as "ACCELERATION_X_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataAccelerationX" 
+as "ACCELERATION_X" create using "development.iot::sap_cp_iot_sensordata_accelX_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataAccelerationY" 
+as "ACCELERATION_Y_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataAccelerationY" 
+as "ACCELERATION_Y" create using "development.iot::sap_cp_iot_sensordata_accelY_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataAccelerationZ" 
+as "ACCELERATION_Z_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataAccelerationZ" 
+as "ACCELERATION_Z" create using "development.iot::sap_cp_iot_sensordata_accelZ_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataGyroscopeX" 
+as "GYROSCOPE_X_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataGyroscopeX" 
+as "GYROSCOPE_X" create using "development.iot::sap_cp_iot_sensordata_gyroX_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataGyroscopeY" 
+as "GYROSCOPE_Y_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataGyroscopeY" 
+as "GYROSCOPE_Y" create using "development.iot::sap_cp_iot_sensordata_gyroY_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataGyroscopeZ" 
+as "GYROSCOPE_Z_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataGyroscopeZ" 
+as "GYROSCOPE_Z" create using "development.iot::sap_cp_iot_sensordata_gyroZ_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataMagnetometerX" 
+as "MAGNETOMETER_X_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataMagnetometerX" 
+as "MAGNETOMETER_X" create using "development.iot::sap_cp_iot_sensordata_magnetX_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataMagnetometerY" 
+as "MAGNETOMETER_Y_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataMagnetometerY" 
+as "MAGNETOMETER_Y" create using "development.iot::sap_cp_iot_sensordata_magnetY_proc";
+
+"FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataMagnetometerZ" 
+as "MAGNETOMETER_Z_HISTORY"; "FABIAN"."development.iot::sap_cp_iot_sensordata.iotDataMagnetometerZ" 
+as "MAGNETOMETER_Z" create using "development.iot::sap_cp_iot_sensordata_magnetZ_proc";
+
+}

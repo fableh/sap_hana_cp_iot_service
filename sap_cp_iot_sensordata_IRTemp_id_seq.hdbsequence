@@ -1,0 +1,5 @@
+schema="FABIAN";
+start_with=100;
+minvalue=1;
+cycles=false;
+depends_on_table="development.iot::sap_cp_iot_sensordata.iotDataIRTemp";

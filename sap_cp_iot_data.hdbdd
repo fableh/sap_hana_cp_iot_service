@@ -1,0 +1,34 @@
+namespace development.iot;
+
+@Schema: 'FABIAN'
+context sap_cp_iot_data {
+ 	   type SDate : UTCTimestamp;
+   type tt_error {
+     HTTP_STATUS_CODE: Integer;
+     ERROR_MESSAGE: String(100);
+     DETAIL: String(200);
+   };
+type tt_details {
+     ID: Integer;
+	  TIMESTAMP: SDate;
+	  MEASUNIT: String(100);
+	  MEASTIMESTAMP: Integer64;
+	  MEASNAME: String(100);
+	  MEASVALUE: Double;
+	  MEASUID: String(100);
+	  
+};
+
+@Catalog.tableType : #COLUMN
+Entity iotData {
+ 		 key ID: Integer;
+	 TIMESTAMP: SDate;
+	  MEASUNIT: String(100);
+	  MEASTIMESTAMP: Integer64;
+	  MEASNAME: String(100);
+	  MEASVALUE: Double;
+	  MEASUID: String(100);
+	
+  };
+
+};  

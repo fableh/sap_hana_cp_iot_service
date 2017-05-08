@@ -1,0 +1,447 @@
+namespace development.iot;
+
+@Schema: 'FABIAN'
+context sap_cp_iot_sensordata {
+ 	   type SDate : UTCTimestamp;
+   type tt_error {
+     HTTP_STATUS_CODE: Integer;
+     ERROR_MESSAGE: String(100);
+     DETAIL: String(200);
+   };
+
+type tt_detailsTemp {
+     ID: Integer;
+	  TIMESTAMP: SDate;
+	  MEASUNIT: String(100);
+	  MEASTIMESTAMP: Integer64;
+	  TEMPERATURE: Double;
+	  MEASUID: String(100);
+	  NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+	  
+};
+
+type tt_detailsHum {
+     ID: Integer;
+	  TIMESTAMP: SDate;
+	  MEASUNIT: String(100);
+	  MEASTIMESTAMP: Integer64;
+	  HUMIDITY: Double;
+	  MEASUID: String(100);
+	  NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+	  
+};
+
+type tt_detailsIRTemp {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      TEMPERATURE: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsPressure {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      PRESSURE: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsLux {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      LUX: Integer;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsAccelerationX {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      ACCELERATIONX: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsAccelerationY {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      ACCELERATIONY: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsAccelerationZ {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      ACCELERATIONZ: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsMagnetometerX {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      MAGNETOMETERX: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsMagnetometerY {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      MAGNETOMETERY: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsMagnetometerZ {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      MAGNETOMETERZ: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsGyroscopeX {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      GYROSCOPEX: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsGyroscopeY {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      GYROSCOPEY: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsGyroscopeZ {
+     ID: Integer;
+      TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      GYROSCOPEZ: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+      
+};
+
+type tt_detailsDevice {
+     ID: Integer;
+	  TIMESTAMP: SDate;
+	 PHYADDR: String(100);
+	  LONGITUDE: Double;
+	  LATITUDE: Double;
+	  ALTITUDE: Double;
+	  DEVICEID: Integer;
+	  DEVICENAME: String(100);
+	  PHYNODEID: Integer;
+	  NETID: Integer;
+	  
+};
+
+@Catalog.tableType : #COLUMN
+Entity iotDataTemp {
+ 		 key ID: Integer;
+	 TIMESTAMP: SDate;
+	  MEASUNIT: String(100);
+	  MEASTIMESTAMP: Integer64;
+	  TEMPERATURE: Double;
+	  MEASUID: String(100);
+	  NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+	
+  };
+  
+  @Catalog.tableType : #COLUMN
+Entity iotDataHum {
+ 		 key ID: Integer;
+	 TIMESTAMP: SDate;
+	  MEASUNIT: String(100);
+	  MEASTIMESTAMP: Integer64;
+	  HUMIDITY: Double;
+	  MEASUID: String(100);
+	  NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+	
+  };
+  
+    @Catalog.tableType : #COLUMN
+Entity iotDataDevice {
+ 		 key ID: Integer;
+	 TIMESTAMP: SDate;
+	  PHYADDR: String(100);
+	  LONGITUDE: Double;
+	  LATITUDE: Double;
+	  ALTITUDE: Double;
+	  DEVICEID: Integer;
+	  DEVICENAME: String(100);
+	  PHYNODEID: Integer;
+	  NETID: Integer;
+  };
+  
+@Catalog.tableType : #COLUMN
+Entity iotDataIRTemp {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      TEMPERATURE: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+  
+  @Catalog.tableType : #COLUMN
+Entity iotDataPressure {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      PRESSURE: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+  
+   @Catalog.tableType : #COLUMN
+Entity iotDataLux {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      LUX: Integer;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+  
+     @Catalog.tableType : #COLUMN
+Entity iotDataAccelerationX {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      ACCELERATIONX: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+  
+     @Catalog.tableType : #COLUMN
+Entity iotDataAccelerationY {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      ACCELERATIONY: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+  
+     @Catalog.tableType : #COLUMN
+Entity iotDataAccelerationZ {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      ACCELERATIONZ: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+  
+       @Catalog.tableType : #COLUMN
+Entity iotDataMagnetometerX {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      MAGNETOMETERX: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+  
+     @Catalog.tableType : #COLUMN
+Entity iotDataMagnetometerY {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      MAGNETOMETERY: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+  
+     @Catalog.tableType : #COLUMN
+Entity iotDataMagnetometerZ {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      MAGNETOMETERZ: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+  
+         @Catalog.tableType : #COLUMN
+Entity iotDataGyroscopeX {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      GYROSCOPEX: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+  
+     @Catalog.tableType : #COLUMN
+Entity iotDataGyroscopeY {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      GYROSCOPEY: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+  
+     @Catalog.tableType : #COLUMN
+Entity iotDataGyroscopeZ {
+         key ID: Integer;
+     TIMESTAMP: SDate;
+      MEASUNIT: String(100);
+      MEASTIMESTAMP: Integer64;
+      GYROSCOPEZ: Double;
+      MEASUID: String(100);
+      NODEID: Integer;
+      MACADDRESS: String(100);
+      PROFILEID: Integer;
+      SENSORID: Integer;
+    
+  };
+
+
+};  

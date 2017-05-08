@@ -1,0 +1,39 @@
+PROCEDURE "FABIAN"."development.iot::sap_cp_iot_procedure" ( 
+ 
+IN row "development.iot::sap_cp_iot_data.tt_details",
+OUT error "development.iot::sap_cp_iot_data.tt_error" )
+
+LANGUAGE SQLSCRIPT
+SQL SECURITY INVOKER
+DEFAULT SCHEMA FABIAN
+AS
+BEGIN
+ /*****************************
+	Write your procedure logic
+ *****************************/
+
+ declare lv_measunit string;
+ declare lv_meastimestamp string;
+ declare lv_measname string;
+ declare lv_measvalue string;
+ declare lv_measuid string;
+  
+ 
+ select MEASUNIT, MEASTIMESTAMP, MEASNAME, MEASVALUE, MEASUID  into lv_measunit, lv_meastimestamp, lv_measname, lv_measvalue, lv_measuid   from :row;
+
+ if :lv_measvalue = ' ' then
+    error = select 400 as http_status_code,
+	    'invalid date' as error_message,
+		    'Invalid response from sensor' as detail from dummy;
+ else
+insert into "FABIAN"."development.iot::sap_cp_iot_data.iotData" values 
+("FABIAN"."development.iot::sap_cp_iot_data_id_seq".NEXTVAL, now(),
+lv_measunit,
+CAST(lv_meastimestamp AS bigint),
+lv_measname,
+CAST(lv_measvalue AS double),
+lv_measuid);
+
+end if;
+
+END;
